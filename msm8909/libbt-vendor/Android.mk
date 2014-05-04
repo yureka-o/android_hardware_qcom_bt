@@ -59,8 +59,12 @@ endif #WIFI_BT_STATUS_SYNC
 
 LOCAL_SHARED_LIBRARIES := \
         libcutils \
-        liblog \
-        libbtnv
+        liblog
+
+ifneq ($(QCPATH),)
+LOCAL_CFLAGS += -DBT_NV_SUPPORT
+LOCAL_SHARED_LIBRARIES += libbtnv
+endif
 
 LOCAL_MODULE := libbt-vendor
 LOCAL_CLANG := false

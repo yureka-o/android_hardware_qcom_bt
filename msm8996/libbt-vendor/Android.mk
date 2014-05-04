@@ -64,10 +64,10 @@ LOCAL_SHARED_LIBRARIES := \
         libcutils \
         liblog
 
-
-# if read from bt nv
-#        libbtnv
-#LOCAL_CFLAGS += -DBT_NV_SUPPORT
+ifneq ($(QCPATH),)
+LOCAL_CFLAGS += -DBT_NV_SUPPORT
+LOCAL_SHARED_LIBRARIES += libbtnv
+endif
 
 LOCAL_MODULE := libbt-vendor
 LOCAL_MODULE_TAGS := optional
