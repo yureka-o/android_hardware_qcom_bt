@@ -9,8 +9,8 @@ ifneq ($(BOARD_IS_AUTOMOTIVE),true)
       ifneq ($(filter msm8996,$(TARGET_BOARD_PLATFORM)),)
         include $(call all-named-subdir-makefiles,msm8996)
       else
-        ifneq ($(filter msm8909 ,$(TARGET_BOARD_PLATFORM)),)
-          #For msm8909 target
+        ifneq ($(filter msm8916 msm8909 ,$(TARGET_BOARD_PLATFORM)),)
+          #For msm8909/msm8916 target
           include $(call all-named-subdir-makefiles,msm8909)
         else
           ifneq ($(filter msm8998,$(TARGET_BOARD_PLATFORM)),)
